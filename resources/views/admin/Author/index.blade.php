@@ -58,7 +58,7 @@
                           <th scope="col">telegram</th>
                           <th scope="col">instagram</th>
                           <th scope="col">image</th>
-                          <th scope="col">Holat</th>
+                          <th scope="col">Status</th>
                         </tr>
                       </thead>
                       <tbody>

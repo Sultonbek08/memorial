@@ -1,6 +1,6 @@
 @extends('layouts.adminlayouts')
 @section('title')
-    Contact
+    Magazine
 @endsection
 @section('content')
     @include('admin.sidebar')
@@ -40,9 +40,10 @@
                     @endif
                     <div class="card">
                         <div class="card-header">
-                            <h2>Aloqa</h2>
+                            <h2>Magazine</h2>
                         </div>
                         <div class="col-6">
+                            <a href="{{ route('admin.magazine.create') }}" class="btn btn-success">Magazine create</a>
                         </div>
 
                         <div class="card-body">
@@ -50,33 +51,54 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">ID</th>
-                                        <th scope="col">name</th>
+                                        <th scope="col">name_uz</th>
+                                        <th scope="col">published_magazines</th>
+                                        <th scope="col">short_name_uz</th>
+                                        <th scope="col">veb_sayt</th>
+                                        <th scope="col">issn_publish</th>
+                                        <th scope="col">location</th>
                                         <th scope="col">email</th>
                                         <th scope="col">phone_number</th>
-                                        <th scope="col">subject</th>
-                                        <th scope="col">message</th>
+                                        <th scope="col">description</th>
+                                        <th scope="col">image</th>
+                                        <th scope="col">file</th>
                                         <th scope="col">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($contacts as $contact)
+                                    @foreach ($magazines as $magazine)
                                         <tr>
-                                            <th scope="row">{{ $contact->id }}</th>
-                                            <td>{{ $contact->name }}</td>
-                                            <td>{{ $contact->email }}</td>
-                                            <td>{{ $contact->phone_number }}</td>
-                                            <td>{{ $contact->subject }}</td>
-                                            <td>{{ $contact->message }}</td>
+                                            <th scope="row">{{ $magazine->id }}</th>
+                                            <td>{{ $magazine->name_uz }}</td>
+                                            <td>{{ $magazine->published_magazines }}</td>
+                                            <td>{{ $magazine->short_name_uz }}</td>
+                                            <td>
+                                                <a href="{{ $magazine->veb_sayt }}">{{ $magazine->veb_sayt }}</a>
+                                            </td>
+                                            <td>{{ $magazine->issn_publish }}</td>
+                                            <td>{{ $magazine->location }}</td>
+                                            <td>{{ $magazine->email }}</td>
+                                            <td>{{ $magazine->phone_number }}</td>
+                                            <td>{{ $magazine->description }}</td>
+                                            <td>
+                                                <img src="/front/Magazine/{{ $magazine->image }}" alt="image"
+                                                    width="50">
+                                            </td>
+                                            <td>
+                                                <img src="/front/Magazine/{{ $magazine->file }}" alt="file"
+                                                    width="50">
+                                            </td>
                                             <td class="d-flex align-items-center">
 
-                                                <form action="{{ route('admin.contact.destroy', $contact->id) }}"
+                                                <form action="{{ route('admin.magazine.destroy', $magazine->id) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button onclick="return confirm('O\'chirishni xohlaysizmi👌')"
-                                                        class="btn btn-danger">O'chirish</button>
+                                                    <button onclick="return confirm('Delate')"
+                                                        class="btn btn-danger">Delate</button>
                                                 </form>
-                                                
+                                                <a href="{{ route('admin.magazine.edit', $magazine->id) }}"
+                                                    class="btn btn-primary">Update</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -86,7 +108,7 @@
                         <div class="card-footer text-right">
                             <nav class="d-inline-block">
                                 <ul class="pagination mb-0">
-                                    {{ $contacts->links() }}
+
                                 </ul>
                             </nav>
                         </div>

@@ -60,7 +60,7 @@
                                         <li><a href="{{ route('ourbooks') }}">Our Books</a></li>
                                         <li><a href="{{ route('library') }}">library</a></li>
                                         <li><a href="{{ route('contactus') }}">Contact us</a></li>
-                                        <li class="mean-last"> <a href="#"><img src="front/images/search_icon.png"
+                                        <li class="mean-last"> <a href="{{ route('search') }}"><img src="front/images/search_icon.png"
                                                     alt="#" /></a> </li>
                                         <li class="mean-last"> <a href="#"><img src="front/images/top-icon.png"
                                                     alt="#" /></a> </li>
@@ -125,19 +125,18 @@
 </html>
 
 <script>
-   document.addEventListener("DOMContentLoaded", function() {
-      const currentLocation = location.pathname.split("/").pop(); // Faqat sahifa nomini oladi (masalan, about.html)
-      const menuItems = document.querySelectorAll(".menu-area-main li a");
-      
-      menuItems.forEach(item => {
-         // href qiymati oxiridagi fayl nomini currentLocation bilan solishtiradi
-         if(item.getAttribute("href").split("/").pop() === currentLocation) {
-            item.parentElement.classList.add("active");
-         } else {
-            item.parentElement.classList.remove("active");
-         }
-      });
-   });
+    document.addEventListener("DOMContentLoaded", function() {
+        const currentLocation = location.pathname.split("/")
+    .pop(); // Faqat sahifa nomini oladi (masalan, about.html)
+        const menuItems = document.querySelectorAll(".menu-area-main li a");
+
+        menuItems.forEach(item => {
+            // href qiymati oxiridagi fayl nomini currentLocation bilan solishtiradi
+            if (item.getAttribute("href").split("/").pop() === currentLocation) {
+                item.parentElement.classList.add("active");
+            } else {
+                item.parentElement.classList.remove("active");
+            }
+        });
+    });
 </script>
-
-

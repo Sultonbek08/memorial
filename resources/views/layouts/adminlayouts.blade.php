@@ -150,7 +150,7 @@
 
             <footer class="main-footer">
                 <div class="footer-left">
-                    <a href="templateshub.net">Sultonbek Mamatov</a></a>
+                    <a href="https://t.me/sultonbek_mamatov">Sultonbek Mamatov</a></a>
                 </div>
                 <div class="footer-right">
                 </div>

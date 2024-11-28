@@ -17,6 +17,14 @@
                 <a href="{{ route('admin.author.index') }}" class="menu-toggle nav-link "><i
                         class='bx bx-category'></i><span>Author</span></a>
             </li>
+            <li class="dropdown">
+                <a href="{{ route('admin.magazine.index') }}" class="menu-toggle nav-link "><i
+                        class='bx bx-category'></i><span>Magazine</span></a>
+            </li>
+            <li class="dropdown">
+                <a href="{{ route('admin.article.index') }}" class="menu-toggle nav-link "><i
+                        class='bx bx-category'></i><span>Article</span></a>
+            </li>
         </ul>
     </aside>
 </div>

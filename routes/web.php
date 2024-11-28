@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\AuthorController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\MagazineController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 
@@ -22,6 +25,8 @@ Route::get('/about', [FrontController::class, 'about'])->name('about');
 Route::get('/ourbooks', [FrontController::class, 'ourbooks'])->name('ourbooks');
 Route::get('/library', [FrontController::class, 'library'])->name('library');
 Route::get('/contactus', [FrontController::class, 'contactus'])->name('contactus');
+Route::get('/search', [FrontController::class, 'search'])->name('search');
+
 
 Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
@@ -29,6 +34,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     })->middleware(['auth', 'verified'])->name('dashboard');
     Route::resource('contact',ContactController::class);
     Route::resource('author',AuthorController::class);
+    Route::resource('magazine',controller: MagazineController::class);
+    Route::resource('article',ArticleController::class);
     Route::post('/post-image-upload', [AuthorController::class, 'upload'])->name('upload');
 });
 
