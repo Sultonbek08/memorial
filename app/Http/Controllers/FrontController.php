@@ -19,10 +19,10 @@ class FrontController extends Controller
 
         return view('about');
     }
-    public function ourbooks()
+    public function magazine()
     {
-
-        return view('ourbooks');
+        $magazines = Magazine::all();
+        return view('magazine', compact('magazines'));
     }
     public function library()
     {
@@ -73,32 +73,11 @@ class FrontController extends Controller
 
         // Natijalarni Blade sahifasiga yuborish
         return view('search', compact('authors', 'articles', 'magazines', 'totalResults'));
+    }
 
-        // $query = $request->input("query");
-
-        // //authorlarni orasidan qidirish
-        // $authors = Author::where("name_uz", "like", "%$query%")
-        //     ->orWhere('name_ru', 'like', "%$query%")
-        //     ->orWhere('name_en', 'like', "%$query%")
-        //     ->get();
-
-        // //article lar orasidan qidirish
-        // $articles = Article::where("name_uz", "like", "%$query%")
-        //     ->orWhere('name_ru', 'like', "%$query%")
-        //     ->orWhere('name_en', 'like', "%$query%")
-        //     ->orWhere('content_uz', 'like', "%$query%")
-        //     ->orWhere('content_ru', 'like', "%$query%")
-        //     ->orWhere('content_en', 'like', "%$query%")
-        //     ->get();
-
-        // $magazines = Magazine::where("name_uz", "like", "%$query%")
-        //     ->orWhere('name_ru','like',"%query%")
-        //     ->orWhere('name_en','like',"%query%")
-        //     ->orWhere('short_name_uz','like',"%query%")
-        //     ->orWhere('short_name_ru','like',"%query%")
-        //     ->orWhere('short_name_en','like',"%query%")
-        //     ->get();
-
-        // return view("search", compact("authors","articles","magazines","query"));
+    public function magazine__detail(Request $request)
+    {
+        $magazine = Magazine::findOrFail($request->id);
+        return view('magazine__detail', compact('magazine'));
     }
 }

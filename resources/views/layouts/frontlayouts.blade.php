@@ -57,7 +57,7 @@
                                     <ul class="menu-area-main">
                                         <li> <a href="{{ route('index') }}">Home</a> </li>
                                         <li> <a href="{{ route('about') }}">About us</a> </li>
-                                        <li><a href="{{ route('ourbooks') }}">Our Books</a></li>
+                                        <li><a href="{{ route('magazine') }}">Magazines</a></li>
                                         <li><a href="{{ route('library') }}">library</a></li>
                                         <li><a href="{{ route('contactus') }}">Contact us</a></li>
                                         <li class="mean-last"> <a href="{{ route('search') }}"><img src="front/images/search_icon.png"

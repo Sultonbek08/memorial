@@ -22,7 +22,8 @@ use App\Http\Controllers\FrontController;
 
 Route::get('/', [FrontController::class, 'index'])->name('index');
 Route::get('/about', [FrontController::class, 'about'])->name('about');
-Route::get('/ourbooks', [FrontController::class, 'ourbooks'])->name('ourbooks');
+Route::get('/magazine', [FrontController::class, 'magazine'])->name('magazine');
+Route::get('/magazine__detail{id}', [FrontController::class, 'magazine__detail'])->name('magazine__detail');
 Route::get('/library', [FrontController::class, 'library'])->name('library');
 Route::get('/contactus', [FrontController::class, 'contactus'])->name('contactus');
 Route::get('/search', [FrontController::class, 'search'])->name('search');
